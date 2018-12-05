@@ -40,7 +40,7 @@ do
                 $add_prefixlength   = Read-Host -Prompt 'input your prefix '
                 $add_DefaultGateway = Read-Host -Prompt 'input default gateway'
 
-                New-NetIPAddress –InterfaceAlias "Ethernet" –IPv4Address $add_IPv4Address –PrefixLength $add_prefixlength -DefaultGateway $add_DefaultGateway
+                Set-NetIPAddress –InterfaceAlias "Ethernet" –IPv4Address $add_IPv4Address –PrefixLength $add_prefixlength -DefaultGateway $add_DefaultGateway
            } '3' {
                 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.0.240, 1.1.1.1
            } '4' {
