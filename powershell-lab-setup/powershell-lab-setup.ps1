@@ -38,9 +38,8 @@ do
            } '2' {
                 $add_IPv4Address    = Read-Host -Prompt 'input your ip address'
                 $add_prefixlength   = Read-Host -Prompt 'input your prefix '
-                $add_DefaultGateway = Read-Host -Prompt 'input default gateway'
 
-                Set-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress $add_IPv4Address -PrefixLength $add_prefixlength -DefaultGateway $add_DefaultGateway
+                Set-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress $add_IPv4Address -PrefixLength $add_prefixlength
            } '3' {
                 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.0.240, 1.1.1.1
            } '4' {
