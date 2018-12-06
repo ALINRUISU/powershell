@@ -37,9 +37,10 @@ do
                 add-Computer -Domain $add_domainname -Force -Restart
            } '2' {
                 $add_IPv4Address    = Read-Host -Prompt 'input your ip address'
-                $add_prefixlength   = Read-Host -Prompt 'input your prefix '
-
-                Set-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress $add_IPv4Address -PrefixLength $add_prefixlength
+                $add_prefixlength   = Read-Host -Prompt 'input your prefix'
+                $add_defaultgateway = Read-Host -Prompt 'input your gateway'
+                
+                Net-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress $add_IPv4Address -PrefixLength $add_prefixlength -DefaultGateway $add_defaultgateway
            } '3' {
                 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.0.240, 1.1.1.1
            } '4' {
