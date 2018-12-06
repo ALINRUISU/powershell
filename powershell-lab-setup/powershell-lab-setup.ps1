@@ -44,9 +44,9 @@ do
            } '3' {
                 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.0.240, 1.1.1.1
            } '4' {
-                install-windowfeature AD-Domain-Services
+                install-windowsfeature AD-Domain-Services
                 Import-Module ADDSDeployment
-                Install-ADDSForest -InstallDns:$true -CreateDnsDelegation:$true -DatabasePath -C:\Windows\NTDS- -DomainMode -Win2012R2- -DomainName -stormwind.destory- -DomainNetbiosName -stormwind- -ForestMode -Win2012R2- -InstallDns:$true -LogPath -C:\Windows\NTDS- -NoRebootOnCompletion:$false -SysvolPath -C:\Windows\SYSVOL--Force:$true 
+                Install-ADDSForest -InstallDns:$true -CreateDnsDelegation:$true -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName "stormwind.destory" -DomainNetbiosName "stormwind" -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SysvolPath "C:\Windows\SYSVOL" -Force:$true 
            } '5' {
                 cmd /c choco install git -y
            } '6' {
