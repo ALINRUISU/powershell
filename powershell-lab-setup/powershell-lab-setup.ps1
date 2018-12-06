@@ -13,11 +13,11 @@ function Show-Menu
      Write-Host "-----------------------------------------------------------------------------------------------------"
      Write-Host "Q: Press 'Q' to quit."
      Write-Host "0: Press '0' Rename Computer."
-     Write-Host "1: Press '1' Add Computer."
-     Write-Host "2: Press '2' Add IP address."
-     Write-Host "3: Press '3' Modify DNS."
-     Write-Host "4: Press '4' Install New Forrest"
-     Write-Host "5: Press '5' install git"
+     Write-Host "1: Press '1' Add Computer to Domain."
+     Write-Host "2: Press '2' New IP address to setup server."
+     Write-Host "3: Press '3' Modify DNS to point to domain controller and external DNS Server."
+     Write-Host "4: Press '4' Install New Active Directory Forrest"
+     Write-Host "5: Press '5' Install Chocolatey"
      Write-Host "5: Press '6' Remove SPN"
 
 }
@@ -48,7 +48,7 @@ do
                 Import-Module ADDSDeployment
                 Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName "stormwind.destory" -DomainNetbiosName "stormwind" -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SysvolPath "C:\Windows\SYSVOL" -Force:$true 
            } '5' {
-                cmd /c choco install git -y
+                iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
            } '6' {
                 
            } '7' {
